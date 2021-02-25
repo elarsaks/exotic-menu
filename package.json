@@ -10,8 +10,9 @@
     "package.json"
   ],
   "scripts": {
-    "dev": "docz dev",
-    "build": "docz build"
+    "docz:dev": "docz dev",
+    "docz:build": "docz build",
+    "docz:serve": "docz build && docz serve"
   },
   "dependencies": {
     "@emotion/react": "^11.1.1",
