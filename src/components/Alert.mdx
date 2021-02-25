@@ -21,19 +21,6 @@ import { Alert } from './Alert.tsx'
 ## Using different kinds
 
 <Playground>
-  <Alert kind='error' transparent={true}>
-    ERROR: Error message
-  </Alert>
-  <Alert kind='info' transparent={true}>
-    INFO: Info message
-  </Alert>
-  <Alert kind='success' transparent={true}>
-    SUCCESS: Success message
-  </Alert>
-  <Alert kind='warning' transparent={true}>
-    WARNING: Warning message
-  </Alert>
-  <br />
   <Alert kind='error' transparent={false}>
     ERROR: Error message
   </Alert>
@@ -44,6 +31,23 @@ import { Alert } from './Alert.tsx'
     SUCCESS: Success message
   </Alert>
   <Alert kind='warning' transparent={false}>
+    WARNING: Warning message
+  </Alert>
+</Playground>
+
+## Using different kinds with transparency
+
+<Playground>
+  <Alert kind='error' transparent={true}>
+    ERROR: Error message
+  </Alert>
+  <Alert kind='info' transparent={true}>
+    INFO: Info message
+  </Alert>
+  <Alert kind='success' transparent={true}>
+    SUCCESS: Success message
+  </Alert>
+  <Alert kind='warning' transparent={true}>
     WARNING: Warning message
   </Alert>
 </Playground>

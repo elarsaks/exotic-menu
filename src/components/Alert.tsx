@@ -35,7 +35,7 @@ const AlertStyled = styled('div')<AlertProps>`
   padding: 20px;
   margin: 10px;
   color: white;
-  border-radius: 3px;
+  border-radius: 5px;
   border: 2px solid ${getKind};
 `
 
