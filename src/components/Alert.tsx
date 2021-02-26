@@ -11,14 +11,12 @@ const kinds: KindMap = {
   warning: 'rgb(211, 162, 0)',
 }
 
-const setOpacity = (color: string, transparent: boolean) => {
-  const rgba = color.slice(0, 3) + 'a' + color.slice(3)
-  const opacity = rgba.slice(0, -1) + ', 0.25)'
-
+const setTranparency = (color: string, transparent: boolean) => {
   return `
-    background: ${transparent ? opacity : color};
+    background: ${transparent ? 'none' : color};
     box-shadow: inset 0 0 0 1px ${color};
-    border: 2px, solid, ${color}
+    border: 2px, solid, ${color};
+    color: ${transparent ? color : '#fff'};
   `
 }
 
@@ -28,15 +26,15 @@ export interface AlertProps {
 }
 
 const getKind = ({ kind = 'info', transparent = false }: AlertProps) =>
-  setOpacity(kinds[kind], transparent)
+  setTranparency(kinds[kind], transparent)
 
 const AlertStyled = styled('div')<AlertProps>`
   ${getKind};
   padding: 20px;
   margin: 10px;
-  color: white;
   border-radius: 5px;
   border: 2px solid ${getKind};
+  //color: red;
 `
 
 export const Alert: FC<AlertProps> = ({ children, kind, ...rest }) => (
