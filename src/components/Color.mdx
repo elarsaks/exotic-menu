@@ -6,8 +6,15 @@ menu: Components
 import { Playground, Props } from 'docz'
 import { error, ColorExample, info, success, warning } from './Color.tsx'
 
+## Properties
+
+<Props of={ColorExample} />
+
 ## Basic usage
 
 <Playground>
-  <ColorExample color={'#fff'} />
+  <ColorExample color={error} />
+  <ColorExample color={info} />
+  <ColorExample color={success} />
+  <ColorExample color={warning} />
 </Playground>
