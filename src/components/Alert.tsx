@@ -1,14 +1,15 @@
 import React, { FC } from 'react'
 import styled from '@emotion/styled'
+import { error, info, success, warning } from './Color.tsx'
 
 export type Kind = 'error' | 'info' | 'success' | 'warning'
 export type KindMap = Record<Kind, string>
 
 const kinds: KindMap = {
-  error: 'rgb(172, 8, 49)',
-  info: 'rgb(8, 19, 177)',
-  success: 'rgb(4, 126, 65)',
-  warning: 'rgb(211, 162, 0)',
+  error: error,
+  info: info,
+  success: success,
+  warning: warning,
 }
 
 const setTranparency = (color: string, transparent: boolean) => {
