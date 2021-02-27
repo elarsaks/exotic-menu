@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import styled from '@emotion/styled'
 import { info } from './Color'
 
@@ -21,13 +21,17 @@ const BarMenu = styled('div')<TopBarProps>`
   justify-content: ${(p) => (p.menuRight ? 'flex-end' : 'center')};
 `
 
+export interface MenuButtonProps {
+  selected: boolean
+}
+
 const BarMenuButton = styled('div')`
   margin: 10px;
   cursor: pointer;
   transition: all 0.5s ease;
 
   &:hover {
-    font-size: 3.5vh;
+    transform: scale(1.2);
   }
 `
 
@@ -37,19 +41,12 @@ export interface TopBarProps {
 }
 
 export const TopBar: FC<TopBarProps> = ({ items, menuRight }) => {
-  const selectButton = (Event: any) => {
-    console.log('Received a click')
-    Event.currentTarget.classList.toggle('selected')
-  }
-
   return (
     <TopBarDiv>
       <BarMenuLogo>Logo</BarMenuLogo>
       <BarMenu menuRight={menuRight} items={items}>
         {items.map((item, i) => (
-          <BarMenuButton onClick={selectButton} key={i}>
-            {item.toUpperCase()}
-          </BarMenuButton>
+          <BarMenuButton key={i}>{item.toUpperCase()}</BarMenuButton>
         ))}
       </BarMenu>
     </TopBarDiv>
