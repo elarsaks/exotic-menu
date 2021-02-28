@@ -9,21 +9,22 @@ const MenuWrapper = styled('div')`
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  list-style: none;
+  //list-style: none;
   height: 100%;
   width: 100%;
+  overflow: hidden;
 `
 
 const MenuItemsWrapper = styled('div')`
-  //background: green;
+  background: green;
   position: absolute;
-  top: 100%;
+  font-size: 1em;
+  width: 26em;
+  height: 26em;
   left: 50%;
-  z-index: 10;
-  margin-top: -13em;
-  margin-left: -13.5em;
-  width: 27em;
-  height: 27em;
+  margin-left: -13em;
+  bottom: -50%;
+  bottom: -13em;
   border-radius: 50%;
   // background: transparent;
   opacity: 1;
@@ -37,21 +38,19 @@ const Article = styled('a')``
 
 export interface MenuProps {
   items: string[]
-  menuRight: boolean
 }
 
-export const Menu: FC<MenuProps> = ({ items, menuRight }) => {
+export const Menu: FC<MenuProps> = ({ items }) => {
   return (
     <MenuWrapper>
-      <MainButton>+</MainButton>
+      <MainButton>.</MainButton>
       <MenuItemsWrapper>
-        {items.map((item) => (
-          <Link item={item}>
+        {items.map((item, i) => (
+          <Link item={item} itemIndex={i} key={i}>
             <Article>{item}</Article>
           </Link>
         ))}
       </MenuItemsWrapper>
-      <div id='cn-overlay' className='cn-overlay'></div>
     </MenuWrapper>
   )
 }
