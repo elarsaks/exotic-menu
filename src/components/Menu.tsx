@@ -50,7 +50,7 @@ const MenuItemsWrapper = styled('div')`
   transition: all 0.3s ease 0.3s;
   transform: scale(1);
   pointer-events: none;
-  //overflow: hidden;
+  overflow: hidden;
 `
 
 const Link = styled('li')`
@@ -58,6 +58,7 @@ const Link = styled('li')`
   width: 50%;
   height: 50%;
   border: 2px solid white;
+  transform: rotate(-10deg) skew(50deg);
 
   li:first {
     transform: rotate(-10deg) skew(50deg);
