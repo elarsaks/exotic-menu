@@ -5,7 +5,7 @@ const Button = styled('div')`
   position: absolute;
   top: 100%;
   left: 50%;
-  z-index: 11;
+  z-index: 21;
   margin-top: -2.25em;
   margin-left: -2.25em;
   padding-top: 0em;
@@ -14,21 +14,17 @@ const Button = styled('div')`
   border: none;
   border-radius: 50%;
   background: none;
-  background-color: rgba(14, 14, 14, 0.541);
+  background-color: rgb(0, 26, 88);
   color: #ffffff;
   text-align: center;
   font-weight: 700;
   font-size: 1.5em;
   text-transform: uppercase;
   backface-visibility: hidden;
+  cursor: pointer;
 
   & > div {
     margin-top: 0.7em;
-  }
-
-  &:hover {
-    background: rgb(190, 230, 11);
-    cursor: pointer;
   }
 `
 

@@ -29,17 +29,15 @@ const MenuItemsWrapper = styled('div')<MenuItemsWrapperProps>`
   bottom: -13em;
   border-radius: 50%;
   transition: all 0.1s 0.1s;
-  transform: scale(2.5);
+  transform: scale(1);
   pointer-events: none;
   overflow: hidden;
   z-index: 13;
 
   :hover {
-    transform: scale(2.5);
+    //transform: scale(2.5);
   }
 `
-
-const Article = styled('a')``
 
 export interface MenuProps {
   items: string[]
@@ -51,11 +49,10 @@ export const Menu: FC<MenuProps> = ({ items }) => {
   console.log(open)
   return (
     <MenuWrapper>
+      <MainButton openClose={() => openClose()} />
       <MenuItemsWrapper menuOpen={open}>
         {items.map((item, i) => (
-          <Link item={item} itemIndex={i} key={i}>
-            <Article>{item}</Article>
-          </Link>
+          <Link item={item} itemIndex={i} key={i} />
         ))}
       </MenuItemsWrapper>
     </MenuWrapper>

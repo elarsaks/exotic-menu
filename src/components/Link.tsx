@@ -9,27 +9,43 @@ export interface LinkComponentProps {
   }
 }
 
-const Article = styled('a')`
-  color: white;
-`
-
 const LinkComponent = styled('div')<LinkComponentProps>`
   position: absolute;
   background: rgba(11, 131, 230, 0.575);
   font-size: 1.5em;
   width: 10em;
   height: 10em;
-  margin-top: ${(p) => p.itemPosition.y};
-  margin-left: ${(p) => p.itemPosition.x};
-
-  transform: rotate(${(p) => p.itemAngle}) skew(50deg);
   z-index: 99;
   pointer-events: all;
+  overflow: hidden;
+
+  margin-top: ${(p) => p.itemPosition.y};
+  margin-left: ${(p) => p.itemPosition.x};
+  transform: rotate(${(p) => p.itemAngle}) skew(50deg);
 
   &:hover {
     background: rgba(190, 230, 11, 0.575);
     cursor: pointer;
   }
+`
+
+const Article = styled('a')`
+  display: block;
+  font-size: 1.18em;
+  height: 14.5em;
+  width: 14.5em;
+  position: absolute;
+  bottom: -7.25em;
+  right: -7.25em;
+  border-radius: 50%;
+  text-decoration: none;
+  color: #fff;
+  padding-top: 1em;
+
+  text-align: center;
+
+  transform: skew(-50deg) rotate(-70deg) scale(1);
+  transition: opacity 0.3s, color 0.3s;
 `
 
 export interface LinkProps {
@@ -52,7 +68,9 @@ export const Link: FC<LinkProps> = ({ item, itemIndex }) => {
       itemAngle={itemAngles[itemIndex]}
       itemPosition={itemPositions[itemIndex]}
     >
-      <Article>{item}</Article>
+      <Article>
+        <p>{item}</p>
+      </Article>
     </LinkComponent>
   )
 }
