@@ -21,7 +21,7 @@ const LinkComponent = styled('div')<LinkComponentProps>`
   height: 10em;
   margin-top: ${(p) => p.itemPosition.y};
   margin-left: ${(p) => p.itemPosition.x};
-  border: 1px solid white;
+
   transform: rotate(${(p) => p.itemAngle}) skew(50deg);
   z-index: 99;
   pointer-events: all;
@@ -40,11 +40,11 @@ export interface LinkProps {
 export const Link: FC<LinkProps> = ({ item, itemIndex }) => {
   const itemAngles: string[] = ['-10deg', '30deg', '70deg', '110deg', '150deg']
   const itemPositions = [
-    { x: '-8.2em', y: '0.55em' },
-    { x: '-3.4em', y: '-6.3em' },
+    { x: '-8em', y: '0.72em' },
+    { x: '-3.4em', y: '-6.18em' },
     { x: '4.55em', y: '-8.5em' },
-    { x: '12.15em', y: '-5.1em' },
-    { x: '15.6em', y: '2.5em' },
+    { x: '12em', y: '-4.85em' },
+    { x: '15.6em', y: '2.6em' },
   ]
 
   return (

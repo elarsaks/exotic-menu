@@ -15,8 +15,10 @@ const MenuWrapper = styled('div')`
   overflow: hidden;
   z-index: 1;
 `
-
-const MenuItemsWrapper = styled('div')`
+export interface MenuItemsWrapperProps {
+  menuOpen: boolean
+}
+const MenuItemsWrapper = styled('div')<MenuItemsWrapperProps>`
   font-size: 0.7em; // Menu size can be controlled from here!
   position: absolute;
   width: 26em;
@@ -26,11 +28,15 @@ const MenuItemsWrapper = styled('div')`
   bottom: -50%;
   bottom: -13em;
   border-radius: 50%;
-  transition: all 0.3s ease 0.3s;
-  transform: scale(1); // Menu size can be controlled from here!
+  transition: all 0.1s 0.1s;
+  transform: scale(2.5);
   pointer-events: none;
   overflow: hidden;
-  z-index: 10;
+  z-index: 13;
+
+  :hover {
+    transform: scale(2.5);
+  }
 `
 
 const Article = styled('a')``
@@ -42,11 +48,10 @@ export interface MenuProps {
 export const Menu: FC<MenuProps> = ({ items }) => {
   let [open, setOpen] = useState(false)
   const openClose = () => setOpen(!open)
-
+  console.log(open)
   return (
     <MenuWrapper>
-      <MainButton openClose={openClose} />
-      <MenuItemsWrapper>
+      <MenuItemsWrapper menuOpen={open}>
         {items.map((item, i) => (
           <Link item={item} itemIndex={i} key={i}>
             <Article>{item}</Article>
