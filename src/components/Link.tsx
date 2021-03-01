@@ -30,7 +30,7 @@ const LinkComponent = styled('div')<LinkComponentProps>`
   }
 `
 
-const Article = styled('a')`
+const IconWrapper = styled('a')`
   display: block;
   font-size: 1.18em;
   height: 13.5em;
@@ -43,7 +43,6 @@ const Article = styled('a')`
   color: #fff;
   padding-top: 1em;
   text-align: center;
-  border: solid 1px white;
 
   transform: skew(-50deg) rotate(-70deg) scale(1);
   transition: opacity 0.3s, color 0.3s;
@@ -73,9 +72,9 @@ export const Link: FC<LinkProps> = ({ itemIndex, icon }) => {
       itemAngle={itemAngles[itemIndex]}
       itemPosition={itemPositions[itemIndex]}
     >
-      <Article>
-        <Icon />
-      </Article>
+      <IconWrapper>
+        <Icon fontSize='large' />
+      </IconWrapper>
     </LinkComponent>
   )
 }

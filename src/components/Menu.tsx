@@ -1,7 +1,6 @@
 import React, { FC, useState, ReactNode } from 'react'
 import styled from '@emotion/styled'
 import { Link } from './Link'
-import { MainButton } from './MainButton'
 
 /// This needs to be set for everything!
 const MenuWrapper = styled('div')`
@@ -15,11 +14,34 @@ const MenuWrapper = styled('div')`
   overflow: hidden;
   z-index: 1;
 `
-export interface MenuItemsWrapperProps {
-  menuOpen: boolean
-}
-const MenuItemsWrapper = styled('div')<MenuItemsWrapperProps>`
-  font-size: 0.6em; // Menu size can be controlled from here!
+
+const MainButton = styled('div')`
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  z-index: 21;
+  margin-top: -2.25em;
+  margin-left: -2.25em;
+  padding-top: 0em;
+  width: 4.5em;
+  height: 4.5em;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(19, 19, 19, 0.863);
+  color: #ffffff;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  & > p {
+    margin-block-start: 0.7em;
+  }
+`
+
+const MenuItemsWrapper = styled('div')`
+  font-size: 0em; // Menu size can be controlled from here!
   position: absolute;
   width: 26em;
   height: 26em;
@@ -34,29 +56,31 @@ const MenuItemsWrapper = styled('div')<MenuItemsWrapperProps>`
   overflow: hidden;
   z-index: 13;
 
+  ${MainButton}:hover ~ & {
+    font-size: 0.6em;
+  }
+
   :hover {
-    //transform: scale(2.5);
+    font-size: 0.6em;
   }
 `
+export interface Item {
+  name: string
+  value: string
+  icon: any
+}
 
 export interface MenuProps {
-  items: [
-    {
-      name: string
-      value: string
-      icon: any // SvgIconComponent or ReactNode
-    }
-  ]
+  items: [Item, Item, Item, Item, Item]
 }
 
 export const Menu: FC<MenuProps> = ({ items }) => {
-  let [open, setOpen] = useState(false)
-  const openClose = () => setOpen(!open)
-
   return (
     <MenuWrapper>
-      <MainButton openClose={() => openClose()} />
-      <MenuItemsWrapper menuOpen={open}>
+      <MainButton>
+        <p>Menu</p>
+      </MainButton>
+      <MenuItemsWrapper>
         {items.map((item, i) => (
           <Link itemIndex={i} key={i} {...item} />
         ))}
