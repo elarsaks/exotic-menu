@@ -5,6 +5,7 @@ route: /
 
 import { Playground, Props } from 'docz'
 import { Menu } from './components/Menu.tsx'
+import { Home, Info, SettingsApplications, Collections, ContactMail } from '@material-ui/icons'
 
 ## Properties
 
@@ -14,6 +15,32 @@ import { Menu } from './components/Menu.tsx'
 
 <Playground>
   <div style={{height:'500px'}}>
-    <Menu items={['A', 'B', 'C', 'D', 'E']}/>
+    <Menu items={[
+      {
+        name: 'Home',
+        value: '#home',
+        icon: Home,
+      },
+      {
+        name: 'Services',
+        value: '#services',
+        icon: SettingsApplications ,
+      },
+      {
+        name: 'Portfolio',
+        value: '#portfolio',
+        icon: Collections,
+      },
+      {
+        name: 'About',
+        value: '#about',
+        icon: Info,
+      },
+      {
+        name: 'Contact',
+        value: '#contact',
+        icon: ContactMail,
+      }
+    ]}/>
   </div>
 </Playground>

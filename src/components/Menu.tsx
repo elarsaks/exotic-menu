@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, ReactNode } from 'react'
 import styled from '@emotion/styled'
 import { Link } from './Link'
 import { MainButton } from './MainButton'
@@ -19,7 +19,7 @@ export interface MenuItemsWrapperProps {
   menuOpen: boolean
 }
 const MenuItemsWrapper = styled('div')<MenuItemsWrapperProps>`
-  font-size: 0.7em; // Menu size can be controlled from here!
+  font-size: 0.6em; // Menu size can be controlled from here!
   position: absolute;
   width: 26em;
   height: 26em;
@@ -40,19 +40,25 @@ const MenuItemsWrapper = styled('div')<MenuItemsWrapperProps>`
 `
 
 export interface MenuProps {
-  items: string[]
+  items: [
+    {
+      name: string
+      value: string
+      icon: any // SvgIconComponent or ReactNode
+    }
+  ]
 }
 
 export const Menu: FC<MenuProps> = ({ items }) => {
   let [open, setOpen] = useState(false)
   const openClose = () => setOpen(!open)
-  console.log(open)
+
   return (
     <MenuWrapper>
       <MainButton openClose={() => openClose()} />
       <MenuItemsWrapper menuOpen={open}>
         {items.map((item, i) => (
-          <Link item={item} itemIndex={i} key={i} />
+          <Link itemIndex={i} key={i} {...item} />
         ))}
       </MenuItemsWrapper>
     </MenuWrapper>
