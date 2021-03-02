@@ -64,20 +64,28 @@ const MenuItemsWrapper = styled('div')`
     font-size: 0.6em;
   }
 `
-export interface Item {
-  name: string
-  value: string
-  icon: any
-}
-
 export interface MenuProps {
-  items: [Item, Item, Item, Item, Item]
+  /**
+   * Menu props description.
+   */
+  handleRouting: (route: string) => string
+  items: [
+    {
+      name: string
+      route: string
+      icon: object // TODO: icon could have a better type
+    }
+  ]
 }
 
-export const Menu: FC<MenuProps> = ({ items }) => {
+export const Menu: FC<MenuProps> = ({ items, handleRouting }) => {
   const [hover, setHover] = useState('MENU')
-
   const [selected, setSelected] = useState('About')
+
+  const routeHandler = (name: string, route: string) => {
+    setSelected(name)
+    handleRouting(route)
+  }
 
   return (
     <MenuWrapper>
@@ -92,7 +100,8 @@ export const Menu: FC<MenuProps> = ({ items }) => {
             selected={item.name == selected}
             {...item}
             handleHover={setHover}
-            setSelected={setSelected}
+            handleClick={() => routeHandler(item.name, item.route)}
+            //setSelected={item.setRoute}
           />
         ))}
       </MenuItemsWrapper>

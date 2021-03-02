@@ -1,11 +1,25 @@
 import React, { FC } from 'react'
 import styled from '@emotion/styled'
 
-// Make those editable by props
-const Blue: string = 'rgba(11, 131, 230, 0.575)'
-const Teal: string = 'rgba(11, 230, 219, 0.575)'
-const Orange: string = 'rgb(255, 166, 0)'
-const Red: string = 'rgba(255, 60, 0, 0.911)'
+const color = {
+  aqua: 'rgba(0, 255, 255, 0.7)',
+  black: 'rgba(0, 0, 0, 0.7)',
+  blue: 'rgba(0, 0, 255, 0.7)',
+  brown: 'rgba(165, 42, 42, 0.7)',
+  coral: 'rgba(255, 127, 80, 0.7)',
+  gray: 'rgba(128, 128, 128, 0.7)',
+  green: 'rgba(0, 128, 0, 0.7)',
+  lime: 'rgba(0, 255, 0, 0.7)',
+  maroon: 'rgba(128, 0, 0, 0.7)',
+  navy: 'rgba(0, 0, 128, 0.7)',
+  orange: 'rgba(255, 165, 0, 0.7)',
+  pink: 'rgba(255, 192, 203, 0.7)',
+  purple: 'rgba(128, 0, 128, 0.7)',
+  red: 'rgba(255, 0, 0, 0.7)',
+  teal: 'rgba(0, 128, 128, 0.7)',
+  white: 'rgba(255, 255, 255, 0.7)',
+  yellow: 'rgba(255, 255, 0, 0.7)',
+}
 export interface LinkComponentProps {
   selected: boolean
   itemAngle: string
@@ -17,7 +31,7 @@ export interface LinkComponentProps {
 
 const LinkComponent = styled('div')<LinkComponentProps>`
   position: absolute;
-  background: ${(p) => (p.selected ? Teal : Blue)};
+  background: ${(p) => (p.selected ? color.maroon : color.teal)};
   font-size: 1.5em;
   width: 10em;
   height: 10em;
@@ -30,9 +44,11 @@ const LinkComponent = styled('div')<LinkComponentProps>`
   margin-top: ${(p) => p.itemPosition.y};
   margin-left: ${(p) => p.itemPosition.x};
   transform: rotate(${(p) => p.itemAngle}) skew(50deg);
+  transition: font-size 0s, background 0.5s;
 
   &:hover {
-    background: ${(p) => (p.selected ? Teal : Orange)};
+    background: ${(p) => (p.selected ? color.red : color.aqua)};
+    transition: ${(p) => (p.selected ? 'background 0s' : 'background 0.3s')};
   }
 `
 
@@ -59,8 +75,7 @@ export interface LinkProps {
   itemIndex: number
   name: string
   selected: boolean
-  setSelected: (name: string) => void
-  value: string
+  handleClick: any
 }
 
 export const Link: FC<LinkProps> = ({
@@ -69,7 +84,7 @@ export const Link: FC<LinkProps> = ({
   itemIndex,
   name,
   selected,
-  setSelected,
+  handleClick,
 }) => {
   const itemAngles: string[] = ['-10deg', '30deg', '70deg', '110deg', '150deg']
   const itemPositions = [
@@ -79,7 +94,6 @@ export const Link: FC<LinkProps> = ({
     { x: '12.15em', y: '-5.21em' },
     { x: '15.8em', y: '2.25em' },
   ]
-
   //  Custom components need to start with a capital letter, because DOM native elements start with lowercase letters.
   const Icon = icon
   return (
@@ -89,7 +103,7 @@ export const Link: FC<LinkProps> = ({
       selected={selected}
       onMouseOver={() => handleHover(name)}
       onMouseLeave={() => handleHover('MENU')}
-      onClick={() => setSelected(name)}
+      onClick={() => handleClick()}
     >
       <IconWrapper>
         <Icon fontSize='large' />

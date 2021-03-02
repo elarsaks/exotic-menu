@@ -6,6 +6,7 @@ route: /
 import { Playground, Props } from 'docz'
 import { Menu } from './components/Menu.tsx'
 import { Home, Info, SettingsApplications, Collections, ContactMail } from '@material-ui/icons'
+import t from 'prop-types'
 
 ## Properties
 
@@ -14,33 +15,40 @@ import { Home, Info, SettingsApplications, Collections, ContactMail } from '@mat
 ## Basic usage
 
 <Playground>
-  <div style={{height:'500px'}}>
-    <Menu items={[
+{() => {
+    const items = [
       {
         name: 'Home',
-        value: '#home',
+        route: '/home',
         icon: Home,
       },
       {
         name: 'Services',
-        value: '#services',
-        icon: SettingsApplications ,
+        route: '/services',
+        icon: SettingsApplications,
       },
       {
         name: 'Projects',
-        value: '#projects',
+        route: '/projects',
         icon: Collections,
       },
       {
         name: 'About',
-        value: '#about',
+        route: '/about',
         icon: Info,
       },
       {
         name: 'Contact',
-        value: '#contact',
+        route: '/contact',
         icon: ContactMail,
       }
-    ]}/>
-  </div>
+    ]
+    const [route, setRoute] = React.useState('/about')
+    return (
+      <>
+        <div style={{height:'300px', textAlign:'center', fontSize: '3em'}}>"{route}"</div>
+        <Menu items={items} handleRouting={setRoute}/>
+      </>
+    )
+  }}
 </Playground>
