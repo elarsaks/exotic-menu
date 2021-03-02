@@ -1,4 +1,4 @@
-import React, { FC, useState, ReactNode } from 'react'
+import React, { FC, useState } from 'react'
 import styled from '@emotion/styled'
 import { Link } from './Link'
 
@@ -21,9 +21,9 @@ const MainButton = styled('div')`
   left: 50%;
   z-index: 21;
   margin-top: -2.25em;
-  margin-left: -2.25em;
+  margin-left: -2.75em;
   padding-top: 0em;
-  width: 4.5em;
+  width: 5.5em;
   height: 4.5em;
   border: none;
   border-radius: 50%;
@@ -50,7 +50,7 @@ const MenuItemsWrapper = styled('div')`
   bottom: -50%;
   bottom: -13em;
   border-radius: 50%;
-  transition: all 0.1s 0.1s;
+  transition: font-size 0.1s 0.1s;
   transform: scale(1);
   pointer-events: none;
   overflow: hidden;
@@ -75,14 +75,16 @@ export interface MenuProps {
 }
 
 export const Menu: FC<MenuProps> = ({ items }) => {
+  const [hover, setHover] = useState('MENU')
+
   return (
     <MenuWrapper>
       <MainButton>
-        <p>Menu</p>
+        <p>{hover}</p>
       </MainButton>
       <MenuItemsWrapper>
         {items.map((item, i) => (
-          <Link itemIndex={i} key={i} {...item} />
+          <Link itemIndex={i} key={i} {...item} handleHover={setHover} />
         ))}
       </MenuItemsWrapper>
     </MenuWrapper>
