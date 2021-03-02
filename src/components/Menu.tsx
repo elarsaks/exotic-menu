@@ -66,9 +66,16 @@ const MenuItemsWrapper = styled('div')`
 `
 export interface MenuProps {
   /**
-   * Menu props description.
+   * * Returns a route value (item.route) of an clicked item.
+   * * __Use this to connect your routing.__
    */
   handleRouting: (route: string) => string
+  /**
+   * * Take an array of menu items. __Array length has to be 5, as there are 5 buttons in menu.__
+   * * Name property is the value that will be displayed on the menu.
+   * * Route property is the value that will be returned from the menu when user clicks on it.
+   * * Icon propery takes an SVG icon that will be then displayed on menu. In this example material-ui icons are used
+   */
   items: [
     {
       name: string
@@ -101,7 +108,6 @@ export const Menu: FC<MenuProps> = ({ items, handleRouting }) => {
             {...item}
             handleHover={setHover}
             handleClick={() => routeHandler(item.name, item.route)}
-            //setSelected={item.setRoute}
           />
         ))}
       </MenuItemsWrapper>
