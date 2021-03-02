@@ -77,6 +77,8 @@ export interface MenuProps {
 export const Menu: FC<MenuProps> = ({ items }) => {
   const [hover, setHover] = useState('MENU')
 
+  const [selected, setSelected] = useState('About')
+
   return (
     <MenuWrapper>
       <MainButton>
@@ -84,7 +86,14 @@ export const Menu: FC<MenuProps> = ({ items }) => {
       </MainButton>
       <MenuItemsWrapper>
         {items.map((item, i) => (
-          <Link itemIndex={i} key={i} {...item} handleHover={setHover} />
+          <Link
+            itemIndex={i}
+            key={item.name}
+            selected={item.name == selected}
+            {...item}
+            handleHover={setHover}
+            setSelected={setSelected}
+          />
         ))}
       </MenuItemsWrapper>
     </MenuWrapper>

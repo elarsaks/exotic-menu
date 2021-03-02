@@ -1,7 +1,13 @@
-import React, { FC, ReactNode } from 'react'
+import React, { FC } from 'react'
 import styled from '@emotion/styled'
 
+// Make those editable by props
+const Blue: string = 'rgba(11, 131, 230, 0.575)'
+const Teal: string = 'rgba(11, 230, 219, 0.575)'
+const Orange: string = 'rgb(255, 166, 0)'
+const Red: string = 'rgba(255, 60, 0, 0.911)'
 export interface LinkComponentProps {
+  selected: boolean
   itemAngle: string
   itemPosition: {
     x: string
@@ -11,7 +17,7 @@ export interface LinkComponentProps {
 
 const LinkComponent = styled('div')<LinkComponentProps>`
   position: absolute;
-  background: rgba(11, 131, 230, 0.575);
+  background: ${(p) => (p.selected ? Teal : Blue)};
   font-size: 1.5em;
   width: 10em;
   height: 10em;
@@ -19,15 +25,15 @@ const LinkComponent = styled('div')<LinkComponentProps>`
   pointer-events: all;
   overflow: hidden;
   cursor: pointer;
+  z-index: 11;
 
   margin-top: ${(p) => p.itemPosition.y};
   margin-left: ${(p) => p.itemPosition.x};
   transform: rotate(${(p) => p.itemAngle}) skew(50deg);
 
   &:hover {
-    background: rgba(11, 230, 219, 0.575);
+    background: ${(p) => (p.selected ? Teal : Orange)};
   }
-  z-index: 11;
 `
 
 const IconWrapper = styled('a')`
@@ -48,14 +54,23 @@ const IconWrapper = styled('a')`
 `
 
 export interface LinkProps {
-  icon: any
-  name: string
-  value: string
-  itemIndex: number
   handleHover(name: string): void
+  icon: any
+  itemIndex: number
+  name: string
+  selected: boolean
+  setSelected: (name: string) => void
+  value: string
 }
 
-export const Link: FC<LinkProps> = ({ itemIndex, icon, name, handleHover }) => {
+export const Link: FC<LinkProps> = ({
+  handleHover,
+  icon,
+  itemIndex,
+  name,
+  selected,
+  setSelected,
+}) => {
   const itemAngles: string[] = ['-10deg', '30deg', '70deg', '110deg', '150deg']
   const itemPositions = [
     { x: '-8em', y: '0.72em' },
@@ -71,8 +86,10 @@ export const Link: FC<LinkProps> = ({ itemIndex, icon, name, handleHover }) => {
     <LinkComponent
       itemAngle={itemAngles[itemIndex]}
       itemPosition={itemPositions[itemIndex]}
+      selected={selected}
       onMouseOver={() => handleHover(name)}
       onMouseLeave={() => handleHover('MENU')}
+      onClick={() => setSelected(name)}
     >
       <IconWrapper>
         <Icon fontSize='large' />
