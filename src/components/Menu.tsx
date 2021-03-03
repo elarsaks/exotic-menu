@@ -6,6 +6,7 @@ import { Link } from './Link'
 const MenuWrapper = styled('div')`
   position: absolute;
   box-sizing: border-box;
+  left: 0;
   margin: 0;
   padding: 0;
   bottom: 0;
@@ -16,6 +17,7 @@ const MenuWrapper = styled('div')`
 `
 
 const MainButton = styled('div')`
+  font-size: 1em;
   position: absolute;
   top: 100%;
   left: 50%;
@@ -38,6 +40,10 @@ const MainButton = styled('div')`
   & > p {
     margin-block-start: 0.7em;
   }
+
+  @media (max-width: 768px) {
+    font-size: 0.9em;
+  }
 `
 
 interface MenuItemsWrapperProps {
@@ -59,6 +65,11 @@ const openCloseMenu = (props: MenuItemsWrapperProps) => {
     return `font-size: 0em;
     ${MainButton}:hover ~ & {
       font-size: 0.6em;
+    }
+    @media (max-width: 768px) {
+      ${MainButton}:hover ~ & {
+        font-size: 0.5em;
+      }
     }
     `
   }
