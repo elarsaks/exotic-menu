@@ -27,7 +27,7 @@ const MainButton = styled('div')`
   height: 4.5em;
   border: none;
   border-radius: 50%;
-  background-color: rgba(19, 19, 19, 0.863);
+  background-color: rgba(0, 68, 68, 0.9);
   color: #ffffff;
   text-align: center;
   font-weight: 700;
@@ -115,3 +115,9 @@ export const Menu: FC<MenuProps> = ({ items, handleRouting }) => {
     </MenuWrapper>
   )
 }
+
+/***
+ *       <MainButton>
+        <p>{hover}</p>
+      </MainButton>
+ */

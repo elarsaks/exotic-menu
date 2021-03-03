@@ -45,10 +45,10 @@ import t from 'prop-types'
         icon: ContactMail,
       }
     ]
-    const [route, setRoute] = React.useState('/about')
+    const [route, setRoute] = React.useState('Hover or click on MENU.')
     return (
       <>
-        <div style={{height:'300px', textAlign:'center', fontSize: '3em'}}>"{route}"</div>
+        <div style={{height:'300px', textAlign:'center', fontSize: '3em', color: 'teal'}}>"{route}"</div>
         <Menu items={items} handleRouting={setRoute}/>
       </>
     )

@@ -77,9 +77,9 @@ export const Link: FC<LinkProps> = ({
   const itemPositions = [
     { x: '-8em', y: '0.72em' },
     { x: '-3.4em', y: '-6.19em' },
-    { x: '4.55em', y: '-8.53em' },
-    { x: '12.15em', y: '-5.21em' },
-    { x: '15.8em', y: '2.25em' },
+    { x: '4.6em', y: '-8.4em' },
+    { x: '12.15em', y: '-4.9em' },
+    { x: '15.8em', y: '2.55em' },
   ]
   //  Custom components need to start with a capital letter, because DOM native elements start with lowercase letters.
   const Icon = icon
