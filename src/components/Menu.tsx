@@ -40,8 +40,32 @@ const MainButton = styled('div')`
   }
 `
 
-const MenuItemsWrapper = styled('div')`
-  font-size: 0em; // Menu size can be controlled from here!
+interface MenuItemsWrapperProps {
+  touchScreen: boolean
+}
+
+const openCloseMenu = (props: MenuItemsWrapperProps) => {
+  // Menu open close on regular pc (not a touchscreen)
+  if (!props.touchScreen) {
+    return `font-size: 0em;
+    ${MainButton}:hover ~ & {
+      font-size: 0.6em;
+    }
+    :hover {
+      font-size: 0.6em;
+    }
+    `
+  } else {
+    return `font-size: 0em;
+    ${MainButton}:hover ~ & {
+      font-size: 0.6em;
+    }
+    `
+  }
+}
+
+const MenuItemsWrapper = styled('div')<MenuItemsWrapperProps>`
+  ${openCloseMenu}
   position: absolute;
   width: 26em;
   height: 26em;
@@ -56,13 +80,8 @@ const MenuItemsWrapper = styled('div')`
   overflow: hidden;
   z-index: 13;
 
-  ${MainButton}:hover ~ & {
-    font-size: 0.6em;
-  }
-
-  :hover {
-    font-size: 0.6em;
-  }
+  // TODO: Mobile screens
+  //@media (max-width: 767px) {}
 `
 
 export interface MenuProps {
@@ -89,6 +108,9 @@ export interface MenuProps {
 export const Menu: FC<MenuProps> = ({ items, handleRouting }) => {
   const [hover, setHover] = useState('MENU')
   const [selected, setSelected] = useState('About')
+  const [touchScreen, setTouchScreen] = useState(
+    'ontouchstart' in document.documentElement
+  )
 
   const routeHandler = (name: string, route: string) => {
     setSelected(name)
@@ -100,7 +122,8 @@ export const Menu: FC<MenuProps> = ({ items, handleRouting }) => {
       <MainButton>
         <p>{hover}</p>
       </MainButton>
-      <MenuItemsWrapper>
+
+      <MenuItemsWrapper touchScreen={touchScreen}>
         {items.map((item, i) => (
           <Link
             itemIndex={i}
@@ -115,9 +138,3 @@ export const Menu: FC<MenuProps> = ({ items, handleRouting }) => {
     </MenuWrapper>
   )
 }
-
-/***
- *       <MainButton>
-        <p>{hover}</p>
-      </MainButton>
- */

@@ -37,6 +37,11 @@ const LinkComponent = styled('div')<LinkComponentProps>`
     background: ${(p) => (p.selected ? color.red : color.aqua)};
     transition: ${(p) => (p.selected ? 'background 0s' : 'background 0.3s')};
   }
+
+  :active {
+    // TODO: Click effect on a button
+    // margin-top: -8em;
+  }
 `
 
 const IconWrapper = styled('a')`
@@ -57,21 +62,21 @@ const IconWrapper = styled('a')`
 `
 
 export interface LinkProps {
+  handleClick: () => void
   handleHover(name: string): void
   icon: any
   itemIndex: number
   name: string
   selected: boolean
-  handleClick: any
 }
 
 export const Link: FC<LinkProps> = ({
+  handleClick,
   handleHover,
   icon,
   itemIndex,
   name,
   selected,
-  handleClick,
 }) => {
   const itemAngles: string[] = ['-10deg', '30deg', '70deg', '110deg', '150deg']
   const itemPositions = [
@@ -81,8 +86,8 @@ export const Link: FC<LinkProps> = ({
     { x: '12.15em', y: '-4.9em' },
     { x: '15.8em', y: '2.55em' },
   ]
-  //  Custom components need to start with a capital letter, because DOM native elements start with lowercase letters.
   const Icon = icon
+
   return (
     <LinkComponent
       itemAngle={itemAngles[itemIndex]}
@@ -93,7 +98,12 @@ export const Link: FC<LinkProps> = ({
       onClick={() => handleClick()}
     >
       <IconWrapper>
-        <Icon fontSize='large' />
+        <Icon
+          style={
+            itemIndex == 4 ? { marginLeft: '-0.5em' } : { marginLeft: '0' }
+          }
+          fontSize='large'
+        />
       </IconWrapper>
     </LinkComponent>
   )

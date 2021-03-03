@@ -8,6 +8,10 @@ import { Menu } from './components/Menu.tsx'
 import { Home, Info, SettingsApplications, Collections, ContactMail } from '@material-ui/icons'
 import t from 'prop-types'
 
+## Info
+
+Here comes some info about the project
+
 ## Properties
 
 <Props of={Menu} />
@@ -45,10 +49,11 @@ import t from 'prop-types'
         icon: ContactMail,
       }
     ]
-    const [route, setRoute] = React.useState('Hover or click on MENU.')
+    const [route, setRoute] = React.useState('Hover or Click on MENU.')
     return (
       <>
         <div style={{height:'300px', textAlign:'center', fontSize: '3em', color: 'teal'}}>"{route}"</div>
+        
         <Menu items={items} handleRouting={setRoute}/>
       </>
     )
