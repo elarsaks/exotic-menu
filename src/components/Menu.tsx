@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import styled from '@emotion/styled'
 import { Link } from './Link'
 
@@ -119,8 +119,13 @@ export interface MenuProps {
 export const Menu: FC<MenuProps> = ({ items, handleRouting }) => {
   const [hover, setHover] = useState('MENU')
   const [selected, setSelected] = useState('About')
-  const [touchScreen, setTouchScreen] = useState(
-    'ontouchstart' in document.documentElement
+  const [touchScreen, setTouchScreen] = useState(false)
+
+  // Has to be done after mounting in browser.
+  // Otherwise it will produce error in Gatsby build
+  useEffect(
+    () => setTouchScreen('ontouchstart' in document.documentElement),
+    []
   )
 
   const routeHandler = (name: string, route: string) => {

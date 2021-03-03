@@ -3,4 +3,3 @@ export default {
   files: ['**/*.mdx'],
   ignore: ['README.md'],
 }
-// TODO: Add here project title
