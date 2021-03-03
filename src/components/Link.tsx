@@ -3,22 +3,9 @@ import styled from '@emotion/styled'
 
 const color = {
   aqua: 'rgba(0, 255, 255, 0.7)',
-  black: 'rgba(0, 0, 0, 0.7)',
-  blue: 'rgba(0, 0, 255, 0.7)',
-  brown: 'rgba(165, 42, 42, 0.7)',
-  coral: 'rgba(255, 127, 80, 0.7)',
-  gray: 'rgba(128, 128, 128, 0.7)',
-  green: 'rgba(0, 128, 0, 0.7)',
-  lime: 'rgba(0, 255, 0, 0.7)',
   maroon: 'rgba(128, 0, 0, 0.7)',
-  navy: 'rgba(0, 0, 128, 0.7)',
-  orange: 'rgba(255, 165, 0, 0.7)',
-  pink: 'rgba(255, 192, 203, 0.7)',
-  purple: 'rgba(128, 0, 128, 0.7)',
   red: 'rgba(255, 0, 0, 0.7)',
   teal: 'rgba(0, 128, 128, 0.7)',
-  white: 'rgba(255, 255, 255, 0.7)',
-  yellow: 'rgba(255, 255, 0, 0.7)',
 }
 export interface LinkComponentProps {
   selected: boolean

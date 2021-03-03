@@ -64,6 +64,7 @@ const MenuItemsWrapper = styled('div')`
     font-size: 0.6em;
   }
 `
+
 export interface MenuProps {
   /**
    * * Returns a route value (item.route) of an clicked item.
