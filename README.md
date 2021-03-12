@@ -5,8 +5,7 @@ This repository serves as an illustration of my front-end development skills.
 It is a front-end portfolio page where I can upload reusable React components.  
 Currently, it only has one custom menu component, but I will add more whenever I feel inspired to design something.
 
-### Testing
-[Cloud](http://front-end-portfolio.s3-website.eu-north-1.amazonaws.com/) |  [Local](http://localhost:8080/)
+#### See it running live: [Cloud](http://front-end-portfolio.s3-website.eu-north-1.amazonaws.com/)
 
 
 ### Prerequisites
@@ -16,7 +15,7 @@ Currently, it only has one custom menu component, but I will add more whenever I
 ## Setup and Running
 
 1. Download project from GitHub
-2. Run 'docker-compose up --build' in the project root
-3. Wait until the application installs itself
-4. Test it on on http://localhost:8080/ && http://localhost:3000/ && http://localhost:3001/
+2. Run 'yarn' at projects root to install application
+3. Run 'yarn docz:dev' to run application in development mode
+4. Test it on on http://localhost:8080
 
