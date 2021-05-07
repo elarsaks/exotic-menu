@@ -19,3 +19,5 @@ Currently, it only has one custom menu component, but I will add more whenever I
 3. Run 'yarn docz:dev' to run application in development mode
 4. Test it on on http://localhost:8080
 
+## Screenshot
+<img src="https://front-end-portfolio.s3.eu-north-1.amazonaws.com/pic.png" />
