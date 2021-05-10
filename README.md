@@ -20,4 +20,4 @@ Currently, it only has one custom menu component, but I will add more whenever I
 4. Test it on on http://localhost:8080
 
 ## Screenshot
-<img src="https://s3.eu-north-1.amazonaws.com/elar-saks.info/Droppe-Xmas.png" />
+<img src="https://front-end-portfolio.s3.eu-north-1.amazonaws.com/pic.png" />
