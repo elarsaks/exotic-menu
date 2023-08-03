@@ -1,4 +1,4 @@
-# Exotic
+# Exotic Menu
 
 It is a bit different looking menu that I built, just to play around.
 
