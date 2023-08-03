@@ -1,9 +1,6 @@
-# Front-end-portfolio
+# Exotic
 
-This repository serves as an illustration of my front-end development skills.  
-
-It is a front-end portfolio page where I can upload reusable React components.  
-Currently, it only has one custom menu component, but I will add more whenever I feel inspired to design something.
+It is a bit different looking menu that I built, just to play around.
 
 #### See it running live: [Front-End](http://front-end-portfolio.s3-website.eu-north-1.amazonaws.com/)
 
