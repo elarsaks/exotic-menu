@@ -1,3 +1,5 @@
+import { deep } from '@theme-ui/presets';
+
 export default {
   base: "exotic-menu/",
   typescript: true,
