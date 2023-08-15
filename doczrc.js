@@ -6,4 +6,9 @@ export default {
   gatsby: {
     pathPrefix: "/exotic-menu",
   },
+  themeConfig: {
+    ...deep,
+    initialColorModeName: 'dark', 
+    useColorSchemeMediaQuery: false, 
+  },
 }
