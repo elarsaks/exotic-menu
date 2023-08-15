@@ -7,6 +7,7 @@ import { Playground, Props } from 'docz'
 import { Menu } from './components/Menu.tsx'
 import { Home, Info, SettingsApplications, Collections, ContactMail } from '@material-ui/icons'
 import t from 'prop-types'
+import Wrapper from './components/wrapper.js'
 
 ## Info
 
@@ -51,11 +52,11 @@ In this project, I aimed to create a menu that deviates from typical UI styles.
     ]
     const [route, setRoute] = React.useState('Hover or Click on MENU.')
     return (
-      <>
+      <Wrapper>
         <div style={{height:'300px', textAlign:'center', fontSize: '2em', color: 'teal'}}>"{route}"</div>
         
         <Menu items={items} handleRouting={setRoute} />
-      </>
+      </Wrapper>
     )
   }}
 </Playground>

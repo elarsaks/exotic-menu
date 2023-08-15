@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Helmet } from 'react-helmet-async'
-import some from "./assets/some.png"
+import some from "../assets/some.png"
 
 
 const Wrapper = ({ children, doc }) => <React.Fragment>
