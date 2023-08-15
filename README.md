@@ -1,20 +1,36 @@
+
 # Exotic Menu
 
-It is a bit different looking menu that I built, just to play around.
+Dive into an innovatively designed menu I created during my creative explorations.
 
-#### See it running live: [Front-End](http://front-end-portfolio.s3-website.eu-north-1.amazonaws.com/)
+🔗 **[Live Demo](https://elarsaks.github.io/exotic-menu/)**
 
+## 🛠 Prerequisites
 
-### Prerequisites
-- Yarn
-- React
+Ensure you have the following installed:
 
-## Setup and Running
+- **Yarn**: Dependency management.
+- **React**: UI library.
+- **Node**: Specifically v14. Other versions might cause issues.
 
-1. Download project from GitHub
-2. Run 'yarn' at projects root to install application
-3. Run 'yarn docz:dev' to run application in development mode
-4. Test it on on http://localhost:8080
+## 🚀 Setup and Launch
 
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/your-username/exotic-menu.git
+   ```
+
+2. **Install Dependencies:**:
+   ```bash
+   yarn
+   ```
+
+3. **Clone the Repository**:
+   ```bash
+   yarn docz:dev
+   ```
+
+4. **Access Locally:**
+Open your browser and head to http://localhost:8080.
 ## Screenshot
 <img src="https://front-end-portfolio.s3.eu-north-1.amazonaws.com/pic.png" />
